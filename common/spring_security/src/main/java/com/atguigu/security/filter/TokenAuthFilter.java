@@ -18,6 +18,9 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+/**
+ * 授权过滤器
+ */
 public class TokenAuthFilter extends BasicAuthenticationFilter {
 
     private TokenManager tokenManager;

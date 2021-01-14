@@ -22,6 +22,9 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
 
+/**
+ * 认证过滤器
+ */
 public class TokenLoginFilter extends UsernamePasswordAuthenticationFilter {
 
     private TokenManager tokenManager;
