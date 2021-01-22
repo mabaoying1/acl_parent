@@ -1,3 +1,4 @@
+/*
 package com.atguigu.utils;
 
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
@@ -14,3 +15,4 @@ public class SwaggerWebMvcConfig extends WebMvcConfigurerAdapter {
 //        System.out.println("SwaggerWebMvcConfig  addResourceHandlers"  );
     }
 }
+*/

@@ -50,14 +50,19 @@ public class TokenWebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .anyRequest().authenticated()
                 .and().logout().logoutUrl("/admin/acl/index/logout")//退出路径
+                //退出过滤器
                 .addLogoutHandler(new TokenLogoutHandler(tokenManager,redisTemplate)).and()
+                //登录认证过滤器
                 .addFilter(new TokenLoginFilter(authenticationManager(), tokenManager, redisTemplate))
+                //授权过滤器
                 .addFilter(new TokenAuthFilter(authenticationManager(), tokenManager, redisTemplate)).httpBasic();
     }
 
     //调用userDetailsService和密码处理
     @Override
     public void configure(AuthenticationManagerBuilder auth) throws Exception {
+        // 使用自定义登录身份认证组件
+        //auth.authenticationProvider(new JwtAuthenticationProvider(userDetailsService));
         auth.userDetailsService(userDetailsService).passwordEncoder(defaultPasswordEncoder);
     }
     //不进行认证的路径，可以直接访问

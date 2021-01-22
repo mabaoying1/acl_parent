@@ -36,6 +36,13 @@ public class UserController {
     @Autowired
     private RoleService roleService;
 
+    @ApiOperation(value="查询全部用户")
+    @GetMapping(value="/getAllUser")
+    public R getAllUser(){
+       List<User> list= userService.list(null);
+        return R.ok().data("list",list);
+    }
+
     @ApiOperation(value = "获取管理用户分页列表")
     @GetMapping("{page}/{limit}")
     public R index(

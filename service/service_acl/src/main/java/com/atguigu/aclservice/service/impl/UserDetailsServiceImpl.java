@@ -13,6 +13,9 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+/**
+ * 把这些信息取出来，然后包装成一个对象交由框架去认证
+ */
 @Service("userDetailsService")
 public class UserDetailsServiceImpl implements UserDetailsService {
 
@@ -22,6 +25,12 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     @Autowired
     private PermissionService permissionService;
 
+    /**
+     * 通过username查询用户的信息
+     * @param username
+     * @return
+     * @throws UsernameNotFoundException
+     */
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         //根据用户名查询数据

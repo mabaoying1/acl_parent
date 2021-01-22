@@ -43,6 +43,10 @@ public class TokenLoginFilter extends UsernamePasswordAuthenticationFilter {
     @Override
     public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response)
             throws AuthenticationException {
+        // 如果使用此过滤器来触发登录认证流程，注意登录请求数据格式的问题
+        // 此过滤器的用户名密码默认从request.getParameter()获取，但是这种
+        // 读取方式不能读取到如 application/json 等 post 请求数据，需要把
+        // 用户名密码的读取逻辑修改为到流中读取request.getInputStream()
         //获取表单提交数据
         try {
             User user = new ObjectMapper().readValue(request.getInputStream(), User.class);
