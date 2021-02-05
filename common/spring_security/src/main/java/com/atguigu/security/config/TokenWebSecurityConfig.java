@@ -70,6 +70,7 @@ public class TokenWebSecurityConfig extends WebSecurityConfigurerAdapter {
     public void configure(WebSecurity web) throws Exception {
         web.ignoring().antMatchers("/api/**")
                 . antMatchers("/swagger-ui.html")
+               // . antMatchers("/admin/acl/user/getAllUser")
                 .antMatchers("/webjars/**")
                 .antMatchers("/v2/**")
                 .antMatchers("/swagger-resources/**");

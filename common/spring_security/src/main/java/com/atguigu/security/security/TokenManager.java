@@ -10,7 +10,7 @@ import java.util.Date;
 @Component
 public class TokenManager {
     //token有效时长
-    private long tokenEcpiration = 24*60*60*1000;
+    private long tokenEcpiration = 1*1*60*1000;
     //编码秘钥
     private String tokenSignKey = "123456";
     //1 使用jwt根据用户名生成token
@@ -27,4 +27,9 @@ public class TokenManager {
     }
     //3 删除token
     public void removeToken(String token) { }
+
+    public static void main(String[] args) {
+       String token= new TokenManager().createToken("admin");
+        System.out.println("token=="+token);
+    }
 }
